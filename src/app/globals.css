@@ -1,0 +1,93 @@
+/* 
+ * Tailwind CSS
+ * This file uses Tailwind CSS directives
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('/fonts/HWMingChao/font.css');
+
+:root {
+  --foreground-rgb: 50, 71, 50; /* 深灰绿色文字 */
+  --background-start-rgb: 247, 249, 247; /* 极浅灰绿色背景开始 */
+  --background-end-rgb: 231, 237, 231; /* 浅灰绿色背景结束 */
+}
+
+.dark {
+  --foreground-rgb: 210, 220, 210; /* 柔和的浅灰绿色文字 */
+  --background-start-rgb: 42, 49, 42; /* 柔和的深灰绿色背景开始 */
+  --background-end-rgb: 36, 43, 36; /* 柔和的深灰绿色背景结束 */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #4d5d4d; /* 深灰绿色 */
+}
+
+a {
+  color: #637963; /* 中灰绿色 */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7d967d; /* 浅灰绿色 */
+}
+
+@layer components {
+  /* 诗歌显示样式 */
+  .poem-container {
+    @apply max-w-2xl mx-auto text-sage-800 dark:text-sage-200;
+  }
+
+  .poem-title {
+    @apply text-3xl md:text-4xl font-hwmingchao text-left text-sage-900 dark:text-sage-100 mb-2;
+  }
+
+  .poem-author {
+    @apply text-left text-sage-600 dark:text-sage-400 mb-6;
+  }
+
+  .poem-content {
+    @apply space-y-0; /* 移除这里的行间距，由段落自己控制 */
+  }
+
+  .poem-line {
+    @apply font-hwmingchao text-lg md:text-xl leading-relaxed;
+  }
+
+  /* 段落间距 */
+  .poem-paragraph {
+    @apply mb-16 relative; /* 显著增加段落之间的间距，并添加相对定位以便添加装饰元素 */
+  }
+
+  /* 段落内容 */
+  .poem-paragraph-content {
+    @apply space-y-0.5; /* 减小段落内的行间距，保持紧凑 */
+  }
+
+  /* 优化诗歌显示间距 */
+  .poem-line + .poem-line:empty {
+    @apply h-8; /* 增加空行高度 */
+  }
+
+  /* 按钮样式 */
+  .btn {
+    @apply px-4 py-2 rounded-md bg-sage-500 text-white hover:bg-sage-600 transition-colors;
+  }
+
+  .btn-outline {
+    @apply px-4 py-2 rounded-md border border-sage-500 text-sage-700 dark:text-sage-300 hover:bg-sage-100 dark:hover:bg-sage-800 transition-colors;
+  }
+}
