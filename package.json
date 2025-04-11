@@ -1,5 +1,5 @@
 {
-  "name": "chinese-poetry-showcase",
+  "name": "shiyu",
   "version": "0.1.0",
   "private": true,
   "description": "A showcase for Chinese poetry with beautiful typography and design using Next.js and Tailwind CSS.",
